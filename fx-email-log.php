@@ -80,6 +80,10 @@ function fx_email_log_plugin_activation( $network_wide ) {
 	require_once( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'install.php' );
 }
 
+
+/* Utility Functions
+------------------------------------------ */
+
 /**
  * Create Table
  * @since 1.0.0
@@ -91,7 +95,7 @@ function fx_email_log_create_table(){
 	$charset_collate = $wpdb->get_charset_collate();
 
 	/* Check if table exist */
-	if ( $wpdb->get_var( "show tables like '{$table_name}'" ) != $table_name ) {
+	if ( $wpdb->get_var( "SHOW TABLES LIKE '{$table_name}'" ) != $table_name ) {
 
 		/* Create DB Table */
 		$sql = 'CREATE TABLE ' . $table_name . ' (
@@ -111,4 +115,22 @@ function fx_email_log_create_table(){
 		/* Save DB Version Number */
 		update_option( 'fx_email_log_db_version', FX_EMAIL_LOG_VERSION );
 	}
+}
+
+/**
+ * Delete Table
+ * @since 1.0.0
+ */
+function fx_email_log_delete_table(){
+	global $wpdb;
+
+	$table_name = "{$wpdb->prefix}fx_email_log";
+
+	/* Drop table if found */
+	if( $wpdb->get_var( "SHOW TABLES LIKE '{$table_name}'" ) == $table_name ) {
+		$wpdb->query( "DROP TABLE {$table_name}" );
+	}
+
+	/* Delete DB Version */
+	delete_option('fx_email_log_db_version');
 }
