@@ -23,6 +23,16 @@
 if ( ! defined( 'WPINC' ) ) { die; }
 
 
+/* Constants
+------------------------------------------ */
+
+define( 'FX_EMAIL_LOG_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
+define( 'FX_EMAIL_LOG_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
+define( 'FX_EMAIL_LOG_FILE', __FILE__;
+define( 'FX_EMAIL_LOG_PLUGIN', plugin_basename( __FILE__ );
+define( 'FX_EMAIL_LOG_VERSION', '1.0.0' );
+
+
 /* Init
 ------------------------------------------ */
 
@@ -36,11 +46,11 @@ add_action( 'plugins_loaded', 'fx_email_log_init' );
 function fx_email_log_init(){
 
 	/* Var */
-	$uri      = trailingslashit( plugin_dir_url( __FILE__ ) );
-	$path     = trailingslashit( plugin_dir_path( __FILE__ ) );
-	$file     = __FILE__;
-	$plugin   = plugin_basename( __FILE__ );
-	$version  = '1.0.0';
+	$uri      = FX_EMAIL_LOG_URI;
+	$path     = FX_EMAIL_LOG_PATH;
+	$file     = FX_EMAIL_LOG_FILE;
+	$plugin   = FX_EMAIL_LOG_PLUGIN;
+	$version  = FX_EMAIL_LOG_VERSION;
 
 	/* Prepare */
 	require_once( $path . 'includes/prepare.php' );
@@ -54,6 +64,11 @@ function fx_email_log_init(){
 /* Activation
 ------------------------------------------ */
 
+/* Multisite Compat */
+if( is_multisite() ){
+	require_once( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'includes/multisite.php' );
+}
+
 /* Register activation hook. */
 register_activation_hook( __FILE__, 'fx_email_log_plugin_activation' );
 
@@ -61,6 +76,39 @@ register_activation_hook( __FILE__, 'fx_email_log_plugin_activation' );
  * Runs only when the plugin is activated.
  * @since 1.0.0
  */
-function fx_email_log_plugin_activation() {
+function fx_email_log_plugin_activation( $network_wide ) {
 	require_once( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'install.php' );
+}
+
+/**
+ * Create Table
+ * @since 1.0.0
+ */
+function fx_email_log_create_table(){
+	global $wpdb;
+
+	$table_name = "{$wpdb->prefix}fx_email_log";
+	$charset_collate = $wpdb->get_charset_collate();
+
+	/* Check if table exist */
+	if ( $wpdb->get_var( "show tables like '{$table_name}'" ) != $table_name ) {
+
+		/* Create DB Table */
+		$sql = 'CREATE TABLE ' . $table_name . ' (
+			id mediumint(9) NOT NULL AUTO_INCREMENT,
+			to_email VARCHAR(100) NOT NULL,
+			subject VARCHAR(250) NOT NULL,
+			message TEXT NOT NULL,
+			headers TEXT NOT NULL,
+			attachments TEXT NOT NULL,
+			sent_date timestamp NOT NULL,
+			PRIMARY KEY  (id)
+		) ' . $charset_collate . ' ;';
+
+		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		dbDelta( $sql );
+
+		/* Save DB Version Number */
+		update_option( 'fx_email_log_db_version', FX_EMAIL_LOG_VERSION );
+	}
 }
