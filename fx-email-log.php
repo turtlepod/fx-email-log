@@ -13,6 +13,12 @@
  *
  * @author David Chandra Purnama <david@genbumedia.com>
  * @copyright Copyright (c) 2016, Genbu Media
+ * 
+ * This plugin is based on Email Log Plugin by Sudar Muthu
+ * Released under GNU General Public License, version 2.
+ * Copyright 2009  Sudar Muthu  (email : sudar@sudarmuthu.com)
+ * http://sudarmuthu.com/wordpress/email-log
+ * 
 **/
 if ( ! defined( 'WPINC' ) ) { die; }
 
