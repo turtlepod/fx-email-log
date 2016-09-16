@@ -5,7 +5,7 @@
  * Do not add namespace to this file. This file need to be PHP 5.2.4 compatible.
  * @version 1.0.0
  */
-class Fx_Base_System_Requirement{
+class Fx_Email_Log_System_Requirement{
 
 	/* System Requirement */
 	var $args;

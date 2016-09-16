@@ -3,7 +3,7 @@
  * Dismissable Admin Notice
  * @version 1.0.0
  */
-class Fx_Base_Welcome_Notice{
+class Fx_Email_Log_Welcome_Notice{
 
 	/* Args */
 	var $args;

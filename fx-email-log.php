@@ -1,14 +1,14 @@
 <?php
 /**
- * Plugin Name: f(x) {BASE}
- * Plugin URI: http://genbumedia.com/plugins/{SLUG}/
- * Description: {SHORT DESCRIPTION}
+ * Plugin Name: f(x) Email Log
+ * Plugin URI: http://genbumedia.com/plugins/fx-email-log/
+ * Description: Simple plugin to log all email sent via WordPress.
  * Version: 1.0.0
  * Author: David Chandra Purnama
  * Author URI: http://shellcreeper.com/
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain: {PLUGIN FOLDER NAME}
+ * Text Domain: fx-email-log
  * Domain Path: /languages/
  *
  * @author David Chandra Purnama <david@genbumedia.com>
@@ -21,13 +21,13 @@ if ( ! defined( 'WPINC' ) ) { die; }
 ------------------------------------------ */
 
 /* Load plugin in "plugins_loaded" hook */
-add_action( 'plugins_loaded', 'fx_base_init' );
+add_action( 'plugins_loaded', 'fx_email_log_init' );
 
 /**
  * Plugin Init
  * @since 0.1.0
  */
-function fx_base_init(){
+function fx_email_log_init(){
 
 	/* Var */
 	$uri      = trailingslashit( plugin_dir_url( __FILE__ ) );
@@ -49,12 +49,12 @@ function fx_base_init(){
 ------------------------------------------ */
 
 /* Register activation hook. */
-register_activation_hook( __FILE__, 'fx_base_plugin_activation' );
+register_activation_hook( __FILE__, 'fx_email_log_plugin_activation' );
 
 /**
  * Runs only when the plugin is activated.
  * @since 1.0.0
  */
-function fx_base_plugin_activation() {
+function fx_email_log_plugin_activation() {
 	require_once( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'install.php' );
 }
