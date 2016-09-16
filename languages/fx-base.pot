@@ -1,0 +1,154 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Genbu Media f(x) Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-16 13:46+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: David Chandra Purnama <david@shellcreeper.com>\n"
+"Language-Team: David Chandra P <david@shellcreeper.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__;esc_attr_e;esc_attr__;esc_html_e;esc_html__;_x;"
+"_n;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/custom-content/custom-content.php:64
+msgid "Stuffs"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:65
+msgid "Stuff"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:66
+msgid "Add New"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:67
+#: includes/custom-content/custom-content.php:101
+msgid "Add New Item"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:68
+#: includes/custom-content/custom-content.php:98
+msgid "Edit Item"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:69
+msgid "New Item"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:70
+#: includes/custom-content/custom-content.php:97
+msgid "All Items"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:71
+#: includes/custom-content/custom-content.php:99
+msgid "View Item"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:72
+#: includes/custom-content/custom-content.php:95
+msgid "Search Items"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:73
+msgid "Not Found"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:74
+msgid "Not Found in Trash"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:75 includes/prepare.php:21
+#: includes/settings/settings.php:54 includes/settings/settings.php:69
+msgid "f(x) Base"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:92
+msgid "Stuff Cats"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:93
+msgid "Stuff Cat"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:94
+msgid "Cat"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:96
+msgid "Popular Items"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:100
+msgid "Update Item"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:102
+msgid "New Item Name"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:103
+msgid "Separate items with commas"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:104
+msgid "Add or remove items"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:105
+msgid "Choose from the most used items"
+msgstr ""
+
+#: includes/custom-content/custom-content.php:106
+msgid "Cats"
+msgstr ""
+
+#: includes/prepare.php:23
+msgid "Get Support"
+msgstr ""
+
+#: includes/prepare.php:32
+#, php-format
+msgid ""
+"f(x) Base plugin requires at least WordPress 4.4+. You are running "
+"WordPress %s. Please upgrade and try again."
+msgstr ""
+
+#: includes/prepare.php:36
+#, php-format
+msgid ""
+"f(x) Base plugin requires at least PHP 5.3+. You are running PHP %s. Please "
+"upgrade and try again."
+msgstr ""
+
+#: includes/prepare.php:47
+msgid "Thank you for using our plugin :)"
+msgstr ""
+
+#: includes/prepare.php:48
+msgid "Dismiss this notice."
+msgstr ""
+
+#: includes/settings/settings.php:55
+msgid "f(x) Settings"
+msgstr ""
+
+#: includes/settings/settings.php:97
+msgid "Section #1"
+msgstr ""
+
+#: includes/settings/settings.php:105
+msgid "Field #1"
+msgstr ""
+
+#: includes/settings/settings.php:123
+msgid "Hi there!"
+msgstr ""
