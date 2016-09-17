@@ -4,7 +4,7 @@
  * Simply add support link to Genbu Media Contact Form.
  * @version 1.0.0
  */
-class Fx_Base_Plugin_Action_Links{
+class Fx_Email_Log_Plugin_Action_Links{
 
 	/* System Requirement */
 	var $args;

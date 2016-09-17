@@ -1,0 +1,250 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Genbu Media f(x) Plugins\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-09-17 15:04+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: David Chandra Purnama <david@shellcreeper.com>\n"
+"Language-Team: David Chandra P <david@shellcreeper.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _e;__;esc_attr_e;esc_attr__;esc_html_e;esc_html__;_x;"
+"_n;_x:1,2c;_n:1,2\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/log-list-table.php:37
+msgid "Sent at"
+msgstr ""
+
+#: includes/log-list-table.php:38
+msgid "To"
+msgstr ""
+
+#: includes/log-list-table.php:39
+msgid "Subject"
+msgstr ""
+
+#: includes/log-list-table.php:40
+msgid "From"
+msgstr ""
+
+#: includes/log-list-table.php:41
+msgid "CC"
+msgstr ""
+
+#: includes/log-list-table.php:42
+msgid "BCC"
+msgstr ""
+
+#: includes/log-list-table.php:43
+msgid "Reply To"
+msgstr ""
+
+#: includes/log-list-table.php:44
+msgid "Attachment"
+msgstr ""
+
+#: includes/log-list-table.php:113
+msgid "Email Content"
+msgstr ""
+
+#: includes/log-list-table.php:114
+msgid "View Content"
+msgstr ""
+
+#: includes/log-list-table.php:118 includes/log-list-table.php:203
+msgid "Delete"
+msgstr ""
+
+#: includes/log-list-table.php:180
+msgid "No"
+msgstr ""
+
+#: includes/log-list-table.php:180
+msgid "Yes"
+msgstr ""
+
+#: includes/log-list-table.php:204
+msgid "Delete All Logs"
+msgstr ""
+
+#: includes/log-list-table.php:251
+msgid "Email Log Deleted."
+msgstr ""
+
+#: includes/log-list-table.php:259
+msgid "Fail to Delete Email Log. Please try again."
+msgstr ""
+
+#: includes/log-list-table.php:267
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: includes/log-list-table.php:268
+msgid "Sorry, you are not allowed to delete email log."
+msgstr ""
+
+#: includes/log-list-table.php:357
+msgid "Your email log is empty"
+msgstr ""
+
+#: includes/prepare.php:15
+msgid "f(x) Email Log"
+msgstr ""
+
+#: includes/prepare.php:17
+msgid "Get Support"
+msgstr ""
+
+#: includes/prepare.php:28
+#, php-format
+msgid ""
+"f(x) Email Log plugin requires at least WordPress 4.4+. You are running "
+"WordPress %s. Please upgrade and try again."
+msgstr ""
+
+#: includes/prepare.php:32
+#, php-format
+msgid ""
+"f(x) Email Log plugin requires at least PHP 5.3+. You are running PHP %s. "
+"Please upgrade and try again."
+msgstr ""
+
+#: includes/prepare.php:43
+#, php-format
+msgid ""
+"Your email logs will be available in <a href=\"%s\">Tools > Email Log</a>."
+msgstr ""
+
+#: includes/prepare.php:44
+msgid "Dismiss this notice."
+msgstr ""
+
+#: includes/settings.php:47 includes/settings.php:48 includes/settings.php:95
+msgid "Email Log"
+msgstr ""
+
+#: includes/settings.php:71
+msgid "Entries per page"
+msgstr ""
+
+#: includes/settings.php:100
+msgid "Search Logs"
+msgstr ""
+
+#: library/list-table-class.php:163
+msgid "List View"
+msgstr ""
+
+#: library/list-table-class.php:164
+msgid "Excerpt View"
+msgstr ""
+
+#: library/list-table-class.php:335
+msgid "No items found."
+msgstr ""
+
+#: library/list-table-class.php:463
+msgid "Select bulk action"
+msgstr ""
+
+#: library/list-table-class.php:465
+msgid "Bulk Actions"
+msgstr ""
+
+#: library/list-table-class.php:475
+msgid "Apply"
+msgstr ""
+
+#: library/list-table-class.php:525 library/list-table-class.php:1326
+msgid "Show more details"
+msgstr ""
+
+#: library/list-table-class.php:588
+msgid "Filter by date"
+msgstr ""
+
+#: library/list-table-class.php:590
+msgid "All dates"
+msgstr ""
+
+#: library/list-table-class.php:603
+#, php-format
+msgid "%1$s %2$d"
+msgstr ""
+
+#: library/list-table-class.php:655
+#, php-format
+msgid "%s comment"
+msgid_plural "%s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/list-table-class.php:656
+#, php-format
+msgid "%s approved comment"
+msgid_plural "%s approved comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/list-table-class.php:657
+#, php-format
+msgid "%s pending comment"
+msgid_plural "%s pending comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/list-table-class.php:662 library/list-table-class.php:674
+#: library/list-table-class.php:687
+msgid "No comments"
+msgstr ""
+
+#: library/list-table-class.php:674
+msgid "No approved comments"
+msgstr ""
+
+#: library/list-table-class.php:687
+msgid "No pending comments"
+msgstr ""
+
+#: library/list-table-class.php:764 library/list-table-class.php:1351
+#, php-format
+msgid "%s item"
+msgid_plural "%s items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: library/list-table-class.php:800
+msgid "First page"
+msgstr ""
+
+#: library/list-table-class.php:810
+msgid "Previous page"
+msgstr ""
+
+#: library/list-table-class.php:817 library/list-table-class.php:820
+msgid "Current Page"
+msgstr ""
+
+#: library/list-table-class.php:826
+#, php-format
+msgctxt "paging"
+msgid "%1$s of %2$s"
+msgstr ""
+
+#: library/list-table-class.php:833
+msgid "Next page"
+msgstr ""
+
+#: library/list-table-class.php:843
+msgid "Last page"
+msgstr ""
+
+#: library/list-table-class.php:1071
+msgid "Select All"
+msgstr ""
