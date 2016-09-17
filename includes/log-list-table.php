@@ -33,10 +33,15 @@ class Log_List_Table extends List_Table{
 	 */
 	public function get_columns() {
 		$columns = array(
-			'cb'        => '<input type="checkbox" />',
-			'sent_date' => __( 'Sent at', 'fx-email-log' ),
-			'to'        => __( 'To', 'fx-email-log' ),
-			'subject'   => __( 'Subject', 'fx-email-log' ),
+			'cb'           => '<input type="checkbox" />',
+			'sent_date'    => __( 'Sent at', 'fx-email-log' ),
+			'to'           => __( 'To', 'fx-email-log' ),
+			'subject'      => __( 'Subject', 'fx-email-log' ),
+			'from'         => __( 'From', 'fx-email-log' ),
+			'cc'           => __( 'CC', 'fx-email-log' ),
+			'bcc'          => __( 'BCC', 'fx-email-log' ),
+			'reply_to'     => __( 'Reply To', 'fx-email-log' ),
+			'attachment'   => __( 'Attachment', 'fx-email-log' ),
 		);
 		return $columns;
 	}
@@ -134,6 +139,45 @@ class Log_List_Table extends List_Table{
 	 */
 	protected function column_subject( $item ) {
 		return esc_html( $item->subject );
+	}
+
+	/**
+	 * Display From field.
+	 */
+	protected function column_from( $item ) {
+		$header = self::parse_header( $item->headers );
+		return isset( $header['from'] ) ? esc_attr( $header['from'] ) : '—';
+	}
+
+	/**
+	 * Display CC field.
+	 */
+	protected function column_cc( $item ) {
+		$header = self::parse_header( $item->headers );
+		return isset( $header['cc'] ) ? esc_attr( $header['cc'] ) : '—';
+	}
+
+	/**
+	 * Display BCC field.
+	 */
+	protected function column_bcc( $item ) {
+		$header = self::parse_header( $item->headers );
+		return isset( $header['bcc'] ) ? esc_attr( $header['bcc'] ) : '—';
+	}
+
+	/**
+	 * Display Reply To field.
+	 */
+	protected function column_reply_to( $item ) {
+		$header = self::parse_header( $item->headers );
+		return isset( $header['reply-to'] ) ? esc_attr( $header['reply-to'] ) : '—';
+	}
+
+	/**
+	 * Display Attachment field.
+	 */
+	protected function column_attachment( $item ) {
+		return ( 'false' == $item->attachments ) ? __( 'No', 'fx-email-log' ) : __( 'Yes', 'fx-email-log' ) ;
 	}
 
 	/**
@@ -312,4 +356,72 @@ class Log_List_Table extends List_Table{
 	public function no_items() {
 		_e( 'Your email log is empty', 'fx-email-log' );
 	}
+
+	/**
+	 * Parse Email Header
+	 */
+	private static function parse_header( $str_headers ) {
+		$headers = array();
+		$arr_headers = explode( "\n", $str_headers );
+
+		foreach( $arr_headers as $header ) {
+			$split_header = explode( ":", $header );
+			$value = self::parse_header_line( $split_header );
+
+			if ( trim( $value ) != '' ) {
+				switch( strtolower( $split_header[0] ) ) {
+				case 'from':
+					$headers['from'] = $value;
+					break;
+
+				case 'cc':
+					$headers['cc'] = $value;
+					break;
+
+				case 'bcc':
+					$headers['bcc'] = $value;
+					break;
+
+				case 'reply-to':
+					$headers['reply-to'] = $value;
+					break;
+				}
+			}
+		}
+		return $headers;
+	}
+
+	/**
+	 * Parse individual header line
+	 */
+	private static function parse_header_line( $header ) {
+		$value = '';
+		if ( count ( $header ) == 2 ) {
+			if ( is_array ( $header[1] ) ) {
+				$value = trim( implode( ',', array_map( 'trim', $header[1] ) ) );
+			} else {
+				$value = trim( $header[1] );
+			}
+		}
+		return $value;
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

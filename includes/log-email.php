@@ -34,15 +34,18 @@ class Log_Email{
 		global $wpdb;
 		$table_name = "{$wpdb->prefix}fx_email_log";
 
-		/* Add to database */
-		$wpdb->insert( $table_name, array(
+		/* Format Email Data */
+		$email_data = array(
 			'to_email'    => is_array( $mail_info['to'] ) ? implode( ',', $mail_info['to'] ) : $mail_info['to'],
 			'subject'     => $mail_info['subject'],
 			'message'     => isset( $mail_info['message'] ) ? $mail_info['message'] : '',
 			'headers'     => is_array( $mail_info['headers'] ) ? implode( "\n", $mail_info['headers'] ) : $mail_info['headers'],
 			'attachments' => ( count( $mail_info['attachments'] ) > 0 ) ? 'true' : 'false',
 			'sent_date'   => current_time( 'mysql' ),
-		) );
+		);
+
+		/* Add to database */
+		$wpdb->insert( $table_name, $email_data );
 
 		return $mail_info;
 	}

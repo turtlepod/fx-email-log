@@ -19,9 +19,6 @@ define( __NAMESPACE__ . '\VERSION', $version );
 /* Load Files
 ------------------------------------------ */
 
-/* Functions */
-require_once( PATH . 'includes/functions.php' );
-
 /* Log Email */
 require_once( PATH . 'includes/log-email.php' );
 

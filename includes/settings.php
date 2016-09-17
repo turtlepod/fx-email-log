@@ -18,6 +18,7 @@ class Settings{
 		return $instance;
 	}
 
+
 	/**
 	 * Constructor.
 	 */
@@ -26,9 +27,13 @@ class Settings{
 		/* Create Settings Page */
 		add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
 
+		/* Save Screen Options */
+		add_filter( 'set-screen-option', array( $this, 'save_screen_options' ), 10, 3 );
+
 		/* Ajax Callback To View Email Content */
 		add_action( 'wp_ajax_fx_email_log_view_content', array( $this, 'view_content_ajax_callback' ) );
 	}
+
 
 	/**
 	 * Create Settings Page
@@ -39,8 +44,8 @@ class Settings{
 		/* Create Settings Sub-Menu */
 		$admin_page = add_submenu_page(
 			$parent_slug = 'tools.php',
-			$page_title  = __( 'f(x) Email Log', 'fx-email-log' ),
-			$menu_title  = __( 'f(x) Email Log', 'fx-email-log' ),
+			$page_title  = __( 'Email Log', 'fx-email-log' ),
+			$menu_title  = __( 'Email Log', 'fx-email-log' ),
 			$capability  = 'manage_options',
 			$menu_slug   = 'fx_email_log',
 			$function    = array( $this, 'settings_page' )
@@ -49,6 +54,7 @@ class Settings{
 		/* Prepare Settings */
 		add_action( "load-{$admin_page}", array( $this, 'prepare_settings' ) );
 	}
+
 
 	/**
 	 * Prepare Settings
@@ -64,7 +70,7 @@ class Settings{
 			array(
 				'label' => __( 'Entries per page', 'fx-email-log' ),
 				'default' => 20,
-				'option' => 'per_page',
+				'option' => 'fx_email_log_per_page',
 			)
 		);
 
@@ -74,8 +80,8 @@ class Settings{
 		/* Load Table Class */
 		$this->log_table = new Log_List_Table();
 		$this->log_table->prepare_items();
-
 	}
+
 
 	/**
 	 * Settings Page Output
@@ -86,9 +92,14 @@ class Settings{
 		?>
 		<div class="wrap">
 
-			<h1><?php _e( 'f(x) Email Log', 'fx-email-log' ); ?></h1>
+			<h1><?php _e( 'Email Log', 'fx-email-log' ); ?></h1>
 
 			<?php settings_errors(); ?>
+
+			<form method="get">
+				<?php $this->log_table->search_box( __( 'Search Logs', 'fx-email-log' ), 'search_id' ); ?>
+				<input type="hidden" name="page" value="<?php echo esc_html( $_GET['page'] ); ?>" />
+			</form>
 
 			<form method="get">
 				<?php $this->log_table->display(); ?>
@@ -99,6 +110,20 @@ class Settings{
 		</div><!-- wrap -->
 		<?php
 	}
+
+
+	/**
+	 * Save Screen Option (Per Page)
+	 */
+	public function save_screen_options( $status, $option, $value ) {
+		if ( 'fx_email_log_per_page' == $option ) {
+			return $value;
+		}
+		else {
+			return $status;
+		}
+	}
+
 
 	/**
 	 * Ajax Callback to Iframe Load Content

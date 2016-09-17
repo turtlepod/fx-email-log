@@ -40,7 +40,7 @@ if( ! $sys_req->check() ) return;
 ------------------------------------------ */
 require_once( $path . 'library/welcome-notice.php' );
 $args = array( 
-	'notice'  => wpautop( __( 'Thank you for using our plugin :)', 'fx-email-log' ) ),
+	'notice'  => wpautop( sprintf( __( 'Your email logs will be available in <a href="%s">Tools > Email Log</a>.', 'fx-email-log' ), esc_url( add_query_arg( 'page', 'fx_email_log', admin_url( 'tools.php' ) ) ) ) ),
 	'dismiss' => __( 'Dismiss this notice.', 'fx-email-log' ),
 	'option'  => 'fx-email-log_welcome',
 );
