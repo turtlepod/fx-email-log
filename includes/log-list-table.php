@@ -82,11 +82,11 @@ class Log_List_Table extends List_Table{
 		/* View Content URL (AJAX) */
 		$view_content_url = add_query_arg(
 			array(
-				'action'    => 'fx_email_log_view_content',
-				'email_id'  => $item->id,
-				'TB_iframe' => 'true',
-				'width'     => '600',
-				'height'    => '550',
+				'action'                         => 'fx_email_log_view_content',
+				'email_id'                       => esc_html( $item->id ),
+				'TB_iframe'                      => 'true',
+				'width'                          => '600',
+				'height'                         => '550',
 			),
 			'admin-ajax.php'
 		);
@@ -94,9 +94,9 @@ class Log_List_Table extends List_Table{
 		/* Delete Item URL */
 		$delete_url = add_query_arg(
 			array(
-				'page'                           => $_REQUEST['page'],
+				'page'                           => esc_html( $_REQUEST['page'] ),
 				'action'                         => 'delete',
-				$this->_args['singular']         => $item->id,
+				$this->_args['singular']         => esc_html( $item->id ),
 				'_fx_email_log_delete_nonce'     => wp_create_nonce( 'fx_email_log_delete_nonce' ),
 			)
 		);
@@ -175,6 +175,7 @@ class Log_List_Table extends List_Table{
 
 		global $wpdb;
 		$table_name = "{$wpdb->prefix}fx_email_log";
+		$table_name = "{$wpdb->prefix}email_log";
 
 		/* Bulk Delete Actions */
 		if( in_array( $this->current_action(), array( 'delete', 'delete-all' ) ) ){
@@ -237,7 +238,7 @@ class Log_List_Table extends List_Table{
 	public function prepare_items() {
 		global $wpdb;
 		$table_name = "{$wpdb->prefix}fx_email_log";
-		$table_name = "{$wpdb->prefix}email_log"; /* Temp */
+		$table_name = "{$wpdb->prefix}email_log";
 		$this->_column_headers = $this->get_column_info();
 
 		/* Process Bulk Action */
@@ -283,6 +284,13 @@ class Log_List_Table extends List_Table{
 			'total_pages' => ceil( $total_items / $per_page ),
 		) );
 	}
+
+
+	/* View Content Ajax Callback
+	------------------------------------------ */
+
+
+
 
 	/* Utility
 	------------------------------------------ */
