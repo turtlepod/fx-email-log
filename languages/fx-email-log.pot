@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genbu Media f(x) Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 14:21+0700\n"
+"POT-Creation-Date: 2016-09-17 15:04+0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: David Chandra Purnama <david@shellcreeper.com>\n"
 "Language-Team: David Chandra P <david@shellcreeper.com>\n"
@@ -125,12 +125,16 @@ msgstr ""
 msgid "Dismiss this notice."
 msgstr ""
 
-#: includes/settings.php:42 includes/settings.php:43 includes/settings.php:88
+#: includes/settings.php:47 includes/settings.php:48 includes/settings.php:95
 msgid "Email Log"
 msgstr ""
 
-#: includes/settings.php:65
+#: includes/settings.php:71
 msgid "Entries per page"
+msgstr ""
+
+#: includes/settings.php:100
+msgid "Search Logs"
 msgstr ""
 
 #: library/list-table-class.php:163
