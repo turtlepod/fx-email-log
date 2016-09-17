@@ -22,18 +22,9 @@ define( __NAMESPACE__ . '\VERSION', $version );
 /* Functions */
 require_once( PATH . 'includes/functions.php' );
 
+/* Log Email */
+require_once( PATH . 'includes/log-email.php' );
+
 /* Settings */
 require_once( PATH . 'includes/settings.php' );
-
-
-
-
-
-
-
-
-
-
-
-
 

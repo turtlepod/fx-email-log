@@ -175,7 +175,6 @@ class Log_List_Table extends List_Table{
 
 		global $wpdb;
 		$table_name = "{$wpdb->prefix}fx_email_log";
-		$table_name = "{$wpdb->prefix}email_log";
 
 		/* Bulk Delete Actions */
 		if( in_array( $this->current_action(), array( 'delete', 'delete-all' ) ) ){
@@ -238,7 +237,6 @@ class Log_List_Table extends List_Table{
 	public function prepare_items() {
 		global $wpdb;
 		$table_name = "{$wpdb->prefix}fx_email_log";
-		$table_name = "{$wpdb->prefix}email_log";
 		$this->_column_headers = $this->get_column_info();
 
 		/* Process Bulk Action */

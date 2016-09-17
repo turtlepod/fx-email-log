@@ -109,13 +109,16 @@ class Settings{
 
 		if ( current_user_can( 'manage_options' ) ) {
 			$table_name = "{$wpdb->prefix}fx_email_log";
-			$table_name = "{$wpdb->prefix}email_log";
 			$email_id   = absint( $_GET['email_id'] );
 
 			$query   = $wpdb->prepare( "SELECT * FROM {$table_name} WHERE id = %d", $email_id );
 			$content = $wpdb->get_results( $query );
 
-			echo $content[0]->message;
+			$message = $content[0]->message;
+			if ( false !== strpos( $content[0]->headers, 'text/plain' ) ){
+				$message = wpautop( $message );
+			}
+			echo $message;
 		}
 
 		wp_die();
