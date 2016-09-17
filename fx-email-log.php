@@ -28,8 +28,8 @@ if ( ! defined( 'WPINC' ) ) { die; }
 
 define( 'FX_EMAIL_LOG_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'FX_EMAIL_LOG_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
-define( 'FX_EMAIL_LOG_FILE', __FILE__;
-define( 'FX_EMAIL_LOG_PLUGIN', plugin_basename( __FILE__ );
+define( 'FX_EMAIL_LOG_FILE', __FILE__ );
+define( 'FX_EMAIL_LOG_PLUGIN', plugin_basename( __FILE__ ) );
 define( 'FX_EMAIL_LOG_VERSION', '1.0.0' );
 
 
