@@ -14,13 +14,13 @@ Simple plugin to log all email sent via WordPress.
 
 **[f(x) Email Log](http://genbumedia.com/plugins/fx-email-log/)** is a simple plugin to log all email sent via WordPress.
 
-Simply visit "Tools > Email Log" Admin Page to see all your email logs. You can delete the log manually or bulk. It will log all your email including the one sent by Contact Form plugins.
+Simply visit "Tools > Email Log" Admin Page to see all your email logs. You can delete the log manually or bulk. It will log all your email including the one sent by your favorite contact form plugins.
 
 **Features:**
 
 1. Easy to use.
-1. No ads.
-1. Fully featured. You can delete
+1. No ads. No bloated features.
+1. Fully featured. You can delete/bulk delete logs and search logs.
 1. Free, Open Source, GPL v2.0 or later license. :) Use it to make something cool.
 1. Support available at [Genbu Media](http://genbumedia.com/contact/?about=f%28x%29+Email+Log).
 
@@ -40,8 +40,9 @@ You can navigate to "Tools > Email Log" to view and manage your email logs.
 
 == Screenshots ==
 
-1. {SCREENSHOT CAPTION}
-2. {SCREENSHOT CAPTION}
+1. Log View
+2. Screen Options
+3. Email Details
 
 == Changelog ==
 
@@ -60,3 +61,10 @@ Notes for developer:
 = Github =
 
 Development of this plugin is hosted at [GitHub](https://github.com/turtlepod/fx-email-log). Pull request and bug reports are welcome.
+
+= Other Info =
+
+This plugin is a fork of Email Log Plugin by Sudar Muthu
+Released under GNU General Public License, version 2.
+Copyright 2009  Sudar Muthu  (email : sudar@sudarmuthu.com)
+http://sudarmuthu.com/wordpress/email-log
