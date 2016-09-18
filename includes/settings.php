@@ -61,6 +61,16 @@ class Settings{
 	 */
 	public function prepare_settings(){
 
+		/* Check User Caps */
+		if ( ! current_user_can( 'manage_options' ) ){
+			return;
+		}
+
+		/* Remove Welcome */
+		if( ! get_option( 'fx-email-log_welcome' ) ){
+			update_option( 'fx-email-log_welcome', 1 );
+		}
+
 		/* Get Current Screen/Page */
 		$screen = get_current_screen();
 
@@ -143,7 +153,7 @@ class Settings{
 			if ( false !== strpos( $content[0]->headers, 'text/plain' ) ){
 				$message = wpautop( $message );
 			}
-			echo $message;
+			echo wp_kses_post( $message );
 		}
 
 		wp_die();

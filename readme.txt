@@ -46,6 +46,11 @@ You can navigate to "Tools > Email Log" to view and manage your email logs.
 
 == Changelog ==
 
+= 1.0.1 - 18 Sept 2016 =
+* Update welcome library.
+* Delete welcome option in uninstall & when visiting Email Log page.
+* Sanitize email content with wp_kses_post
+
 = 1.0.0 - 17 Sept 2016 =
 * Initial release.
 
