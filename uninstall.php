@@ -1,6 +1,11 @@
 <?php
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) { exit() };
+if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) { exit(); };
 global $wpdb;
+
+/* Options
+------------------------------------------ */
+delete_option( 'fx-email-log_welcome' );
+
 
 /* Multisite
 ------------------------------------------ */

@@ -38,7 +38,7 @@ class Log_Email{
 		$email_data = array(
 			'to_email'    => is_array( $mail_info['to'] ) ? implode( ',', $mail_info['to'] ) : $mail_info['to'],
 			'subject'     => $mail_info['subject'],
-			'message'     => isset( $mail_info['message'] ) ? $mail_info['message'] : '',
+			'message'     => isset( $mail_info['message'] ) ? wp_kses_post( $mail_info['message'] ) : '',
 			'headers'     => is_array( $mail_info['headers'] ) ? implode( "\n", $mail_info['headers'] ) : $mail_info['headers'],
 			'attachments' => ( count( $mail_info['attachments'] ) > 0 ) ? 'true' : 'false',
 			'sent_date'   => current_time( 'mysql' ),
