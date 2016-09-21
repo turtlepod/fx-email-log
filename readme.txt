@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: Email,Email Log,Database,Log,Contact Form,Contact Form 7
 Requires at least: 4.0
 Tested up to: 4.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -46,10 +46,12 @@ You can navigate to "Tools > Email Log" to view and manage your email logs.
 
 == Changelog ==
 
-= 1.0.1 - 18 Sept 2016 =
+= 1.0.1 - 21 Sept 2016 =
 * Update welcome library.
 * Delete welcome option in uninstall & when visiting Email Log page.
 * Sanitize email content with wp_kses_post
+* Fix fatal error on multisite.
+* Fix fatal error on uninstall.
 
 = 1.0.0 - 17 Sept 2016 =
 * Initial release.

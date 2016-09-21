@@ -6,6 +6,7 @@ global $wpdb;
 ------------------------------------------ */
 delete_option( 'fx-email-log_welcome' );
 
+
 /* Multisite
 ------------------------------------------ */
 if ( is_multisite() ) {
