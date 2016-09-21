@@ -26,7 +26,7 @@ function fx_email_log_multisite_new_blog( $blog_id, $user_id, $domain, $path, $s
  * Add table to delete table list.
  * @since  1.0.0
  */
-public static function fx_email_log_multisite_delete_blog( $tables ) {
+function fx_email_log_multisite_delete_blog( $tables ) {
 	global $wpdb;
 	$tables[] = "{$wpdb->prefix}fx_email_log";
 	return $tables;
