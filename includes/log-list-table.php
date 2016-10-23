@@ -108,9 +108,8 @@ class Log_List_Table extends List_Table{
 
 		/* Row Actions */
 		$actions = array(
-			'view-content' => sprintf( '<a href="%1$s" class="thickbox" title="%2$s">%3$s</a>',
-				esc_url( $view_content_url ),
-				__( 'Email Content', 'fx-email-log' ),
+			'view-content' => sprintf( '<a class="fx-email-log-view-email" href="#log_id-%1$s" data-id="%1$s">%2$s</a>',
+				esc_html( $item->id ),
 				__( 'View Content', 'fx-email-log' )
 			),
 			'delete' => sprintf( '<a href="%s">%s</a>',
