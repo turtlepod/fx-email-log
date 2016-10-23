@@ -2,9 +2,9 @@
 Contributors: turtlepod
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TT23LVNKA3AU2
 Tags: Email,Email Log,Database,Log,Contact Form,Contact Form 7
-Requires at least: 4.0
+Requires at least: 4.4
 Tested up to: 4.6
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,10 @@ Simply visit "Tools > Email Log" Admin Page to see all your email logs. You can 
 
 You can navigate to "Tools > Email Log" to view and manage your email logs.
 
+= Minimum Requirements =
+
+WordPress 4.4+ and PHP 5.3+
+
 == Screenshots ==
 
 1. Log View
@@ -46,14 +50,17 @@ You can navigate to "Tools > Email Log" to view and manage your email logs.
 
 == Changelog ==
 
-= 1.0.1 - 21 Sept 2016 =
+= 1.0.2 - 23 Oct 2016 =
+* Responsive modal box (no longer use wp core thickbox).
+
+= 1.0.1 - 21 Sep 2016 =
 * Update welcome library.
 * Delete welcome option in uninstall & when visiting Email Log page.
 * Sanitize email content with wp_kses_post
 * Fix fatal error on multisite.
 * Fix fatal error on uninstall.
 
-= 1.0.0 - 17 Sept 2016 =
+= 1.0.0 - 17 Sep 2016 =
 * Initial release.
 
 == Upgrade Notice ==

@@ -3,7 +3,7 @@
  * Plugin Name: f(x) Email Log
  * Plugin URI: http://genbumedia.com/plugins/fx-email-log/
  * Description: Simple plugin to log all email sent via WordPress.
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: David Chandra Purnama
  * Author URI: http://shellcreeper.com/
  * License: GPLv2 or later
@@ -29,7 +29,7 @@ define( 'FX_EMAIL_LOG_URI', trailingslashit( plugin_dir_url( __FILE__ ) ) );
 define( 'FX_EMAIL_LOG_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 define( 'FX_EMAIL_LOG_FILE', __FILE__ );
 define( 'FX_EMAIL_LOG_PLUGIN', plugin_basename( __FILE__ ) );
-define( 'FX_EMAIL_LOG_VERSION', '1.0.1' );
+define( 'FX_EMAIL_LOG_VERSION', '1.0.2' );
 
 
 /* Init

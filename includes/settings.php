@@ -30,8 +30,11 @@ class Settings{
 		/* Save Screen Options */
 		add_filter( 'set-screen-option', array( $this, 'save_screen_options' ), 10, 3 );
 
+		/* Enqueue Script */
+		add_action( 'admin_enqueue_scripts', array( $this, 'scripts' ) );
+
 		/* Ajax Callback To View Email Content */
-		add_action( 'wp_ajax_fx_email_log_view_content', array( $this, 'view_content_ajax_callback' ) );
+		add_action( 'wp_ajax_fx_email_log_view_content', array( $this, 'ajax_view_email_content' ) );
 	}
 
 
@@ -98,9 +101,8 @@ class Settings{
 	 * @since 1.0.0
 	 */
 	public function settings_page(){
-		add_thickbox();
 		?>
-		<div class="wrap">
+		<div id="fx-email-log-settings-wrap" class="wrap">
 
 			<h1><?php _e( 'Email Log', 'fx-email-log' ); ?></h1>
 
@@ -116,6 +118,16 @@ class Settings{
 				<?php wp_nonce_field( "fx_email_log_delete_nonce", "_fx_email_log_delete_nonce" ); ?>
 				<input type="hidden" name="page" value="<?php echo esc_html( $_GET['page'] ); ?>" />
 			</form>
+
+			<div id="fx-email-log-modal-overlay" style="display:none;"></div><!-- #fx-email-log-modal-overlay -->
+			<div id="fx-email-log-modal" style="display:none;width:850px;height:500px;">
+				<div id="fx-email-log-modal-container">
+					<div id="fx-email-log-modal-title"><?php _e( 'Email Content', 'fx-email-log' ); ?><span class="fx-email-log-modal-close"></span></div>
+					<div id="fx-email-log-modal-content">
+						<iframe id="fx-email-log-iframe" height="100%"; width="100%" scrolling="yes"></iframe>
+					</div>
+				</div>
+			</div><!-- #fx-email-log-modal -->
 
 		</div><!-- wrap -->
 		<?php
@@ -134,27 +146,62 @@ class Settings{
 		}
 	}
 
+	/**
+	 * Settings Scripts
+	 * @since 1.0.2
+	 */
+	public function scripts( $hook_suffix ){
+		if( 'tools_page_fx_email_log' !== $hook_suffix ){
+			return;
+		}
+		wp_enqueue_style( 'fx-email-log-settings', URI . "assets/settings.css", array(), VERSION );
+		wp_enqueue_script( 'fx-email-log-settings', URI . "assets/settings.js", array( 'jquery' ), VERSION, true );
+		$data = array(
+			'nonce'       => wp_create_nonce( 'fx-email-log-view-content' ),
+			'reset_css'   => esc_url( URI . "assets/reset.css" ),
+		);
+		wp_localize_script( 'fx-email-log-settings', 'fx_email_log', $data );
+	}
+
 
 	/**
-	 * Ajax Callback to Iframe Load Content
+	 * Ajax Callback to View Email Content
 	 * @since 1.0.0
 	 */
-	public function view_content_ajax_callback(){
+	public function ajax_view_email_content(){
+
+		/* Get Request */
+		$request = stripslashes_deep( $_POST );
+
+		/* Check validation */
+		check_ajax_referer( 'fx-email-log-view-content', 'nonce' );
+		if ( ! current_user_can( 'manage_options' ) ) {
+			echo wpautop( "You don't have permission to view this content.", 'fx-email-log' );
+			wp_die();
+		}
+
+		/* Check Email ID */
+		$email_id = isset( $request['email_id'] ) ? $request['email_id'] : false;
+		if( ! $email_id ){
+			echo wpautop( "Email ID Not Set.", 'fx-email-log' );
+			wp_die();
+		}
+
+		/* Display Email Content */
 		global $wpdb;
 
-		if ( current_user_can( 'manage_options' ) ) {
-			$table_name = "{$wpdb->prefix}fx_email_log";
-			$email_id   = absint( $_GET['email_id'] );
+		$table_name = "{$wpdb->prefix}fx_email_log";
 
-			$query   = $wpdb->prepare( "SELECT * FROM {$table_name} WHERE id = %d", $email_id );
-			$content = $wpdb->get_results( $query );
+		$query   = $wpdb->prepare( "SELECT * FROM {$table_name} WHERE id = %d", $email_id );
+		$content = $wpdb->get_results( $query );
 
+		if ( false !== strpos( $content[0]->headers, 'html' ) ){
 			$message = $content[0]->message;
-			if ( false !== strpos( $content[0]->headers, 'text/plain' ) ){
-				$message = wpautop( $message );
-			}
-			echo wp_kses_post( $message );
 		}
+		else{
+			$message = wpautop( $content[0]->message );
+		}
+		echo wp_kses_post( $message );
 
 		wp_die();
 	}
