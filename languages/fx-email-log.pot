@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Genbu Media f(x) Plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-17 15:04+0700\n"
+"POT-Creation-Date: 2017-04-22 22:56+0700\n"
 "PO-Revision-Date: \n"
 "Last-Translator: David Chandra Purnama <david@shellcreeper.com>\n"
 "Language-Team: David Chandra P <david@shellcreeper.com>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "X-Poedit-KeywordsList: _e;__;esc_attr_e;esc_attr__;esc_html_e;esc_html__;_x;"
 "_n;_x:1,2c;_n:1,2\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 1.8.8\n"
+"X-Generator: Poedit 2.0.1\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: includes/log-list-table.php:37
@@ -50,46 +50,42 @@ msgid "Attachment"
 msgstr ""
 
 #: includes/log-list-table.php:113
-msgid "Email Content"
-msgstr ""
-
-#: includes/log-list-table.php:114
 msgid "View Content"
 msgstr ""
 
-#: includes/log-list-table.php:118 includes/log-list-table.php:203
+#: includes/log-list-table.php:117 includes/log-list-table.php:202
 msgid "Delete"
 msgstr ""
 
-#: includes/log-list-table.php:180
+#: includes/log-list-table.php:179
 msgid "No"
 msgstr ""
 
-#: includes/log-list-table.php:180
+#: includes/log-list-table.php:179
 msgid "Yes"
 msgstr ""
 
-#: includes/log-list-table.php:204
+#: includes/log-list-table.php:203
 msgid "Delete All Logs"
 msgstr ""
 
-#: includes/log-list-table.php:251
+#: includes/log-list-table.php:250
 msgid "Email Log Deleted."
 msgstr ""
 
-#: includes/log-list-table.php:259
+#: includes/log-list-table.php:258
 msgid "Fail to Delete Email Log. Please try again."
 msgstr ""
 
-#: includes/log-list-table.php:267
+#: includes/log-list-table.php:266
 msgid "Cheatin&#8217; uh?"
 msgstr ""
 
-#: includes/log-list-table.php:268
+#: includes/log-list-table.php:267
 msgid "Sorry, you are not allowed to delete email log."
 msgstr ""
 
-#: includes/log-list-table.php:357
+#: includes/log-list-table.php:356
 msgid "Your email log is empty"
 msgstr ""
 
@@ -125,16 +121,20 @@ msgstr ""
 msgid "Dismiss this notice."
 msgstr ""
 
-#: includes/settings.php:47 includes/settings.php:48 includes/settings.php:95
+#: includes/settings.php:50 includes/settings.php:51 includes/settings.php:107
 msgid "Email Log"
 msgstr ""
 
-#: includes/settings.php:71
+#: includes/settings.php:84
 msgid "Entries per page"
 msgstr ""
 
-#: includes/settings.php:100
+#: includes/settings.php:112
 msgid "Search Logs"
+msgstr ""
+
+#: includes/settings.php:125
+msgid "Email Content"
 msgstr ""
 
 #: library/list-table-class.php:163

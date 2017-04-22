@@ -31,6 +31,22 @@ class Log_Email{
 	 * Logs email to database.
 	 */
 	public function log_email( $mail_info ) {
+
+		$defaults = array(
+			'to'          => '',
+			'subject'     => '',
+			'message'     => '',
+			'headers'     => '',
+			'attachments' => 'false',
+		);
+		$mail_info = wp_parse_args( $mail_info, $defaults );
+
+		/* Do not log invalid email  */
+		if ( empty( $mail_info['to'] ) && ! is_email( $mail_info['to'] ) ) {
+			return false;
+		}
+
+		/* Table name */
 		global $wpdb;
 		$table_name = "{$wpdb->prefix}fx_email_log";
 

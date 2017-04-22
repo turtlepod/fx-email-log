@@ -3,7 +3,7 @@
  * Plugin Name: f(x) Email Log
  * Plugin URI: http://genbumedia.com/plugins/fx-email-log/
  * Description: Simple plugin to log all email sent via WordPress.
- * Version: 1.0.2
+ * Version: 1.0.3
  * Author: David Chandra Purnama
  * Author URI: http://shellcreeper.com/
  * License: GPLv2 or later

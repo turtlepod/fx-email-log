@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: Email,Email Log,Database,Log,Contact Form,Contact Form 7
 Requires at least: 4.5
 Tested up to: 4.7
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,9 @@ WordPress 4.4+ and PHP 5.3+
 3. Email Details
 
 == Changelog ==
+
+= 1.0.3 - 22 Apr 2017 =
+* Prevent fatal error when logging invalid usage of wp_mail.
 
 = 1.0.2 - 23 Oct 2016 =
 * Responsive modal box (no longer use wp core thickbox).
